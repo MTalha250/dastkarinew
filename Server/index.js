@@ -31,6 +31,8 @@ app.use(
     origin: [
       "http://localhost:3000",
       "http://localhost:3001",
+      "https://dastkari-admin.vercel.app",
+      "https://dastkari.vercel.app",
       /^http:\/\/192\.168\.\d{1,3}\.\d{1,3}:3000$/,
       /^http:\/\/172\.\d{1,3}\.\d{1,3}\.\d{1,3}:3000$/,
       /^http:\/\/10\.\d{1,3}\.\d{1,3}\.\d{1,3}:3000$/,

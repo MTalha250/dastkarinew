@@ -46,12 +46,6 @@ const Page = () => {
 
   return (
     <div className="px-6 md:px-12 lg:px-24 pt-32 pb-20">
-      <SEO
-        title={blog?.title}
-        description={blog?.description}
-        image={blog?.titleImage}
-        author={blog?.author}
-      />
       <div className="flex flex-col lg:flex-row gap-10 lg:gap-20">
         <div className="w-full lg:w-2/3 space-y-8">
           <div className="bg-[#2C1810] p-8 border border-[#DEB887] relative overflow-hidden">
@@ -76,7 +70,7 @@ const Page = () => {
               <div>
                 <p className="text-[#DEB887] font-serif">{blog?.author}</p>
                 <p className="text-[#E8DED1] text-sm">
-                  {blog?.timeToRead} min read • {" "}
+                  {blog?.timeToRead} min read •{" "}
                   {blog?.createdAt.slice(0, 10).split("-").reverse().join("-")}
                 </p>
               </div>
@@ -90,7 +84,7 @@ const Page = () => {
               className="w-full h-[50vh] object-cover"
             />
           </div>
-          <div 
+          <div
             dangerouslySetInnerHTML={{ __html: blog?.content || "" }}
             className="prose prose-lg max-w-none prose-headings:font-serif prose-headings:text-[#2C1810] prose-p:text-gray-700 prose-a:text-[#2C1810] prose-strong:text-[#2C1810]"
           ></div>
@@ -103,8 +97,8 @@ const Page = () => {
                 Recommended Products
               </h3>
               <div className="mb-6">
-                <Grid 
-                  products={products} 
+                <Grid
+                  products={products}
                   loading={loading}
                   className="!grid-cols-1 sm:!grid-cols-2 lg:!grid-cols-1 gap-4"
                 />

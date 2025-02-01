@@ -28,7 +28,7 @@ const CartItem = ({ item }: Props) => {
           />
           <div className="absolute inset-0 border border-amber-200 opacity-30" />
         </div>
-        
+
         <div className="flex-1">
           <h3 className="font-serif text-lg text-amber-900 mb-1 group-hover:text-amber-800 transition-colors duration-300">
             {item.product.name}
@@ -47,18 +47,26 @@ const CartItem = ({ item }: Props) => {
           <button
             onClick={(e) => {
               e.preventDefault();
-              deleteItem(item.product._id + item.size + item.color, user, token);
+              deleteItem(
+                item.product._id + item.size + item.color,
+                user ? true : false,
+                token
+              );
             }}
             className="flex items-center justify-center w-8 h-8 rounded-full bg-amber-800 hover:bg-amber-900 text-[#E8DED1] transition-colors duration-300"
           >
             <IoIosClose className="text-xl" />
           </button>
-          
+
           <div className="flex items-center space-x-2 bg-amber-50 border-2 border-amber-200 rounded-full">
             <button
               onClick={(e) => {
                 e.preventDefault();
-                removeItem(item.product._id + item.size + item.color, user, token);
+                removeItem(
+                  item.product._id + item.size + item.color,
+                  user ? true : false,
+                  token
+                );
               }}
               className="w-6 h-6 flex items-center justify-center hover:text-amber-900 transition-colors"
             >
@@ -77,8 +85,7 @@ const CartItem = ({ item }: Props) => {
                     size: item.size,
                     color: item.color,
                   },
-                  item.product._id + item.size + item.color,
-                  user,
+                  user ? true : false,
                   token
                 );
               }}

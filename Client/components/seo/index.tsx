@@ -6,6 +6,7 @@ interface Props {
   description?: string;
   keywords?: string;
   author?: string;
+  image?: string;
 }
 
 const SEO: React.FC<Props> = ({

@@ -54,11 +54,7 @@ const page = () => {
     </div>
   ) : product ? (
     <div className="pt-32 pb-10">
-      <SEO
-        title={product?.name}
-        description={product?.description}
-        image={product?.images[0]}
-      />
+      <SEO title={product?.name} description={product?.description} />
       <div className="flex flex-col">
         <div className="flex flex-col md:flex-row px-6 md:px-12 lg:px-24">
           <div className="w-full md:w-1/2 md:pr-0">
@@ -71,7 +67,7 @@ const page = () => {
               </div>
             )}
           </div>
-          
+
           <div className="w-full md:w-1/2 md:pl-10 mt-8 md:mt-0">
             <div className="relative mb-8 pb-6 border-b border-[#DEB887]/30">
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-playfair text-[#2C1810] mb-4">
@@ -89,14 +85,16 @@ const page = () => {
 
             <div className="space-y-6">
               <div>
-                <p className="font-playfair text-[#2C1810] mb-3">Color Selection:</p>
+                <p className="font-playfair text-[#2C1810] mb-3">
+                  Color Selection:
+                </p>
                 <div className="flex gap-3 flex-wrap">
                   {product?.variants.map((v: any) => (
                     <button
                       key={v._id}
                       className={`px-4 py-2 font-playfair text-sm transition-all duration-300 relative group ${
-                        v.color == color 
-                          ? "text-[#2C1810] border-[#DEB887]" 
+                        v.color == color
+                          ? "text-[#2C1810] border-[#DEB887]"
                           : "text-[#3C2815]/70 border-[#DEB887]/30 hover:border-[#DEB887]"
                       } border`}
                       onClick={() => {
@@ -114,7 +112,9 @@ const page = () => {
               </div>
 
               <div>
-                <p className="font-playfair text-[#2C1810] mb-3">Size Selection:</p>
+                <p className="font-playfair text-[#2C1810] mb-3">
+                  Size Selection:
+                </p>
                 <div className="flex gap-3 flex-wrap">
                   {product?.variants
                     .find((v: any) => v.color == color)
@@ -126,8 +126,8 @@ const page = () => {
                       <button
                         key={s}
                         className={`px-4 py-2 font-playfair text-sm transition-all duration-300 relative group ${
-                          s == size 
-                            ? "text-[#2C1810] border-[#DEB887]" 
+                          s == size
+                            ? "text-[#2C1810] border-[#DEB887]"
                             : "text-[#3C2815]/70 border-[#DEB887]/30 hover:border-[#DEB887]"
                         } border`}
                         onClick={() => setSize(s)}
@@ -247,7 +247,9 @@ const page = () => {
 
               {product?.description && (
                 <div className="pt-8 border-t border-[#DEB887]/30">
-                  <p className="font-playfair text-[#2C1810] mb-3">Description:</p>
+                  <p className="font-playfair text-[#2C1810] mb-3">
+                    Description:
+                  </p>
                   <p className="text-[#3C2815]/80 leading-relaxed text-justify">
                     {product?.description}
                   </p>
@@ -256,18 +258,22 @@ const page = () => {
 
               <div className="pt-4 space-y-2">
                 <p className="font-playfair text-[#3C2815]">
-                  Category: <span className="text-[#3C2815]/70">{product?.subCategory}, {product?.category}</span>
+                  Category:{" "}
+                  <span className="text-[#3C2815]/70">
+                    {product?.subCategory}, {product?.category}
+                  </span>
                 </p>
                 {product.brand && (
                   <p className="font-playfair text-[#3C2815]">
-                    Brand: <span className="text-[#3C2815]/70">{product.brand}</span>
+                    Brand:{" "}
+                    <span className="text-[#3C2815]/70">{product.brand}</span>
                   </p>
                 )}
               </div>
             </div>
           </div>
         </div>
-        
+
         <div className="mt-16 px-6 md:px-12 lg:px-24">
           <div className="w-full bg-[#FFFFF1] border border-[#DEB887]/30">
             <Reviews
@@ -299,14 +305,20 @@ const page = () => {
             />
           </div>
           <div className="mt-16">
-            <RelatedProducts category={category} subCategory={subCategory} id={id} />
+            <RelatedProducts
+              category={category}
+              subCategory={subCategory}
+              id={id}
+            />
           </div>
         </div>
       </div>
     </div>
   ) : (
     <div className="flex justify-center items-center h-screen">
-      <h1 className="text-3xl font-playfair text-[#2C1810]">Product not found</h1>
+      <h1 className="text-3xl font-playfair text-[#2C1810]">
+        Product not found
+      </h1>
     </div>
   );
 };
